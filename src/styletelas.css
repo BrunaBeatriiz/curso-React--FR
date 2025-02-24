@@ -1,0 +1,199 @@
+@media screen and (min-width: 768px) and (max-width: 992px){
+   .divPrincipal{
+        width: 94%;
+        height: 90vh;
+        background-color: #0E0E46;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        padding: 24px;
+        padding-top: 30px;
+    }
+    
+    /* #0E0E46
+    #4A4AC5
+    #040470
+    #8181F0
+    #B4B4FF */
+    /* #96ffb0 verde possivel cor */
+    .divConteudo{
+        padding: 20px;
+        width: 90%;
+        height: 85%;
+        background:#9696ff;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: 6px;
+        padding-bottom: 50px;
+    }
+    
+    .titulo{
+        text-align: center;
+        text-shadow: 1px 1px 2px #0e0e46bb;
+        font-size: 1.6em;
+        color:#0E0E46;
+        font-weight: bolder;
+    }
+    
+    .lista{
+        background-color: #0E0E46;
+        width: 50%;
+        padding:15px;
+        display: flex;
+        list-style-type: none;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-items: space-evenly;
+        border-radius: 6px;
+        box-shadow: 2px 4px 4px rgba(0, 0, 61, 0.356);
+    }
+    
+    .itemlista{
+        font-family: 'Times New Roman', Times, serif;
+        background-color: #B4B4FF;
+        color: rgb(0, 0, 48);
+        padding: 5px;
+        width: 70%;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        margin-left: -1px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 70, 0.747);
+        text-align: left;
+    }
+    
+    .button{
+        border: 1px solid #0E0E46;
+        background-color:#B4B4FF;
+        color: #0E0E46;
+        border-radius: 5px;
+        width: 15%;
+        padding: 5px;
+        
+    }
+    .button1{
+        border: 1px solid #0E0E46;
+        background-color:#B4B4FF;
+        color: #0E0E46;
+        border-radius: 5px;
+        width: 15%;
+        padding: 5px;
+    }
+    
+    .riscado{
+        text-decoration: line-through;  
+    }
+
+    .butTarefa{
+        padding: 1px;
+        border-radius: 50%;
+        margin: 10px;
+        width: 25px;
+        height: 25px;
+        border: 1px;
+        color: white;
+        background-color: #0E0E46;
+        margin-left: 2px;
+        margin-right: 30px;
+      }
+}
+
+@media screen and (min-width: 992px) {
+    .divPrincipal{
+        width: 96%;
+        height: 90vh;
+        background-color: #0E0E46;
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+        padding: 24px;
+    }
+    
+    /* #0E0E46
+    #4A4AC5
+    #040470
+    #8181F0
+    #B4B4FF */
+    
+    .divConteudo{
+        padding: 20px;
+        width: 90%;
+        height: 85%;
+        background:#9696ff;
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: flex-start;
+        align-items: center;
+        border-radius: 6px;
+    }
+    
+    .titulo{
+        text-align: center;
+        text-shadow: 1px 1px 2px #0e0e46bb;
+        font-size: 1.9em;
+        color:#0E0E46;
+        font-weight: bolder;
+    }
+    
+    .lista{
+        background-color: #0E0E46;
+        width: 50%;
+        padding:15px;
+        display: flex;
+        list-style-type: none;
+        flex-flow: column nowrap;
+        justify-content: space-evenly;
+        align-items: space-evenly;
+        border-radius: 6px;
+        box-shadow: 2px 4px 4px rgba(0, 0, 61, 0.356);
+    }
+    
+    .itemlista{
+        font-family: 'Times New Roman', Times, serif;
+        background-color: #B4B4FF;
+        color: rgb(0, 0, 48);
+        padding: 5px;
+        width: 70%;
+        font-size: 0.9em;
+        border-radius: 4px;
+        margin-bottom: 8px;
+        margin-left: -1px;
+        box-shadow: 1px 1px 1px rgba(0, 0, 70, 0.747);
+        text-align: left;
+    }
+    
+    .button{
+        border: 1px solid #0E0E46;
+        background-color:#B4B4FF;
+        color: #0E0E46;
+        border-radius: 5px;
+        width: 15%;
+        padding: 6px;
+        
+    }
+    .button1{
+        border: 1px solid #0E0E46;
+        background-color:#B4B4FF;
+        color: #0E0E46;
+        border-radius: 5px;
+        width: 15%;
+        padding: 6px;
+    }
+    
+    .riscado{
+        text-decoration: line-through;  
+    }
+    .butTarefa{
+        padding: 1px;
+        border-radius: 50%;
+        margin: 10px;
+        width: 25px;
+        height: 25px;
+        border: 1px;
+        color: white;
+        background-color: #0E0E46;
+        margin-left: 2px;
+        margin-right: 30px;
+      }
+}

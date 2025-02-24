@@ -1,0 +1,97 @@
+Hooks:Os hooks permitem o uso de state e outros recursos que antes só eram possíveis dentro do React através de classes.
+Até a versão 16.7 do React, algumas funcionalidades só eram possíveis de ser acessadas através de classes (como, por exemplo, o lifecycle). Apesar da possibilidade de criar componentes a partir de função, até essa versão, eles só recebiam propriedades, não podendo acessar todas as funcionalidades do React, como as classes.
+
+Na versão 16.8 do React, foram lançado os hooks, que permitem o uso de vários recursos de forma simples através de funções. Eles também ajudam a organizar a lógica utilizada dentro dos componentes.
+
+Estados:No React, o estado de um componente refere-se a objetos que determinam o comportamento do componente e como ele renderiza na interface. Estados são essenciais para manipular dados que mudam ao longo do tempo, como entradas de usuário, respostas de API, eventos de interação, entre outros. A principal característica do estado é que ele é local e encapsulado dentro do componente, ou seja, não é acessível diretamente por outros componentes a menos que seja passado explicitamente.
+import React, { useState } from 'react';
+O estado em React é utilizado para armazenar e controlar dados que podem mudar ao longo do tempo.
+
+function Contador() {
+  const [contagem, setContagem] = useState(0);
+
+  function incrementar() {
+    setContagem(contagem + 1);
+  }
+
+  return (
+    <div>
+      <p>Contagem atual: {contagem}</p>
+      <button onClick={incrementar}>Incrementar</button>
+    </div>
+  );
+}
+
+Neste exemplo, useState é utilizado para criar uma variável contagem que é inicializada com o valor 0. A função setContagem é usada para atualizar esse valor. Ao clicar no botão, incrementar é chamada, incrementando a contagem por um.
+//gerenciar estados complexos: useReducer.
+
+const [message, setMessage] = useState('Mensagem inicial');
+useState retorna duas coisas:
+
+A variável de estado (message): que guarda o valor atual do estado. Inicialmente, ela tem o valor 'Mensagem inicial'.
+A função de atualização (setMessage): que você usa para atualizar o valor do estado. Essa função será chamada quando você quiser alterar o valor de message (por exemplo, quando o botão for clicado).
+O que acontece no useState('Mensagem inicial')?:
+
+O valor 'Mensagem inicial' é o valor inicial do estado, ou seja, a primeira vez que o componente é renderizado, message será igual a 'Mensagem inicial'.
+
+<button onClick={() => setMessage('Fui clicado!')}>
+  Mudar mensagem
+</button>
+onClick: Este é um evento de clique que ocorre quando o usuário clica no botão.
+Dentro de onClick, você está chamando setMessage('Fui clicado!'):
+Isso atualiza o valor do estado message para 'Fui clicado!'.
+Quando o estado muda, o React detecta que houve uma mudança e re-renderiza o componente, substituindo o valor de message na tela pela nova mensagem.
+
+//o setMessage muda o estado 'valor' da mensagem e quando o react percebe a mudança de valor, ele 'atualiza automaticamente'.
+Quando o componente é renderizado pela primeira vez, o valor de message é 'Mensagem inicial', então o parágrafo <p> exibe esse texto.
+Quando o usuário clica no botão, a função setMessage('Fui clicado!') é chamada, alterando o estado message para 'Fui clicado!'.
+O React então re-renderiza o componente, e a nova mensagem é exibida no lugar da anterior.
+
+Em React, o estado gerencia informações que podem mudar durante a vida do componente. Por exemplo:
+
+O valor de um campo de formulário.
+O texto exibido com base em interações do usuário.
+A visibilidade de um elemento na página.
+useState é fundamental para permitir que esses valores sejam dinâmicos e controlados de maneira eficiente.
+O useState é um hook do React usado para armazenar e atualizar o estado dentro de componentes funcionais.
+Ele retorna duas coisas: a variável que armazena o valor do estado e uma função para atualizá-la.
+Sempre que o estado é alterado, o React automaticamente re-renderiza o componente, atualizando a interface com o novo valor.
+Utilizado para armazenar e atualizar dados que podem mudar com o tempo. É utilizado para tornar os componentes interativos e dinâmicos, pois permite que os componetes respondam as ações do usuario, requisições de rede ou qualquer outro evento exibido na interface.
+o state guarda as informações locais do componente, e todas as alterações do state causa uma nova redenrização do componente garantindo uma interface sempre atualizada. É fundamental para componentes que precisam exibir ou alterar dados que podem ser alterados com o tempo, sem ele as interfáces seriam estáticas.
+Você deve usar o state em React quando precisar de:
+
+Armazenamento de dados que podem mudar: Como valores de formulários, contadores, ou dados recebidos de APIs.
+Interação com o usuário: Como alternar entre mostrar ou esconder um elemento, como um painel, ou controlar o estado de botões (ativados/desativados).
+Reatividade: Quando você deseja que a UI seja atualizada automaticamente em resposta a eventos ou alterações no estado.
+Em React, state é um mecanismo usado para armazenar dados que podem mudar ao longo do tempo em um componente. Ele permite que a interface do usuário seja reativa, ou seja, sempre que o estado muda, o componente é automaticamente re-renderizado para refletir a nova informação.
+ Quando você clica em um botão e isso altera algum valor ou comportamento na interface, isso pode ser considerado uma mudança de estado.
+
+ Props:
+ Props é uma forma reduzida de dizer propriedades. Elas são usadas para passar dados entre componentes. O fluxo de dados do React entre componentes é unidirecional (somente do componente pai para o componente filho).
+
+Como passar dados com props?
+Aqui está um exemplo de como dados podem ser passados usando props:
+
+class ComponentePai extends Component {    
+    render() {    
+        return (        
+            <ComponenteFilho nome="Primeiro filho" />    
+        );  
+    }
+}
+
+const ComponenteFilho = (props) => {    
+    return <p>{props.nome}</p>; 
+};
+Primeiramente, precisamos definir alguns dados do componente pai e atribui-los ao atributo props de um componente filho.
+
+<ComponenteFilho nome="Primeiro filho" />
+"nome" é a prop definida aqui e contém dados de texto. Então, podemos passar dados com props como se estivéssemos passando um argumento para uma função:
+
+const ComponenteFilho = (props) => {  
+  // seu código
+};
+Por fim, usamos a notação de ponto para acessar o dado da prop e renderizá-lo:
+
+return <p>{props.nome}</p>;
+props é um objeto que contém todas as propriedades passadas para um componente. 
