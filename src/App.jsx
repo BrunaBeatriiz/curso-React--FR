@@ -34,7 +34,10 @@ function Dados(){
 //     // isCompleted:false},
 // ]
 
-    JSON.parse(localStorage.getItem("tarefas") || [])
+    JSON.parse(localStorage.getItem("tarefas") || "[]")
+    // erro porque JSON.parse([]) não é válido, já que [] (um array vazio em JavaScript) não é uma string JSON. O JSON.parse() só aceita strings (como "[]").
+
+
 );
 
 useEffect(() => {
