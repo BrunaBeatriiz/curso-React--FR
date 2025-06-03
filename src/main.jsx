@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import ExibirTarefa from './paginas/exibirTarefa.jsx';
+import ExibirTarefa from './paginas/ExibirTarefa.jsx';
 
 const router = createBrowserRouter([
   {
