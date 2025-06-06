@@ -1,11 +1,7 @@
 @media screen and (min-width: 768px) and (max-width: 992px){
    .divPrincipal{
         width: 94%;
-        height: 90vh;
         background-color: #0E0E46;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
         padding: 24px;
         padding-top: 30px;
     }
@@ -19,12 +15,8 @@
     .divConteudo{
         padding: 20px;
         width: 90%;
-        height: 85%;
+        height: 100%;
         background:#9696ff;
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: flex-start;
-        align-items: center;
         border-radius: 6px;
         padding-bottom: 50px;
     }
@@ -102,12 +94,8 @@
 @media screen and (min-width: 992px) {
     .divPrincipal{
         width: 96%;
-        height: 90vh;
         background-color: #0E0E46;
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: center;
-        padding: 24px;
+       
     }
     
     /* #0E0E46
@@ -119,12 +107,8 @@
     .divConteudo{
         padding: 20px;
         width: 90%;
-        height: 85%;
+        height: 100%;
         background:#9696ff;
-        display: flex;
-        flex-flow: column wrap;
-        justify-content: flex-start;
-        align-items: center;
         border-radius: 6px;
     }
     

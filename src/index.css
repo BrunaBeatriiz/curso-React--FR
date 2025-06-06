@@ -10,7 +10,6 @@
 
 .divPrincipal{
   width: 94%;
-  height: 93vh;
   background-color: #0E0E46;
   display: flex;
   flex-flow: row wrap;
@@ -34,7 +33,7 @@
   padding: 10px;
   padding-bottom: 50px;
   width: 90%;
-  height: 85%;
+  height: 100%;
   background:#9696ff;
   display: flex;
   flex-flow: column nowrap;
@@ -102,6 +101,7 @@
   font-size: 0.7em;
   box-shadow: 1px 2px 2px #c9c9ff;
   outline: solid #0E0E46;
+  margin-bottom: 5px;
 }
 
 
@@ -114,7 +114,19 @@
   box-shadow: 1px 2p 2px #0E0E46;
   font-weight: 600;
   font-size: 0.8em;
-  color: #38384d;
+  color: #f0f0f0;
+  margin-bottom: 5px;
+}
+.butEx{
+  background-color: #a0020fc2;
+  padding: 3px;
+  margin: 2px;
+  border-radius: 5px ;
+  border: 1px solid #c7c7fa;
+  box-shadow: 1px 2p 2px #0E0E46;
+  font-weight: 600;
+  font-size: 0.8em;
+  color: #fcc4c4;
 }
 
 .butAd:hover{
@@ -122,6 +134,14 @@
   color: whitesmoke;
   font-weight: normal;
   box-shadow: 1px 2px 2px #dfdffcdc;
+  cursor: pointer;
+}
+.butEx:hover{
+  background-color:  #dd1627c2 ;
+  color: whitesmoke;
+  font-weight: normal;
+  box-shadow: 1px 2px 2px #dfdffcdc;
+  cursor: pointer;
 }
 
 ::-webkit-input-placeholder {

@@ -10,33 +10,16 @@ import Teste from "./componetes/testeClasse";
 
 
 function Dados(){
-    const [tarefas, setTarefas] = useState(
-    //[
-//         {
-//         id:1,
-//         titulo: "Comprar pão",
-//         descricao: "Ir ao mercado comprar pão.",
-//         isCompleted: false,
-//     },{
-//         id:2,
-//         titulo: "Regar as plantas",
-//         descricao: "Regar as plantas",
-//         isCompleted:false,
-//     },{
-//         id:3,
-//         titulo: "Tomar banho",
-//         descricao:"Tomar banho",
-//         isCompleted: false,
-//     },
-//     // {id:4,
-//     // titulo:"Ir à academia",
-//     // descrição: "Ir faxer exercicio",
-//     // isCompleted:false},
-// ]
-
-    JSON.parse(localStorage.getItem("tarefas") || "[]")
-    // erro porque JSON.parse([]) não é válido, já que [] (um array vazio em JavaScript) não é uma string JSON. O JSON.parse() só aceita strings (como "[]").
-
+    const [tarefas, setTarefas] = useState(() => {
+        try{
+            return JSON.parse(localStorage.getItem("tarefas")) || [];
+        }catch(erro){
+            console.error("Erro ao buscar tarefas no localStorage", erro)
+            return [];
+        }
+    }
+   
+    
 
 );
 
@@ -134,12 +117,21 @@ function emClickAdicionar(titulo,descricao){
     setTarefas([...tarefas, novaTarefa]);
 }
 
+function excluirTodas () {
+    const confirmar = window.confirm("Você deseja excluir todas as tarefas?");
+    if(confirmar){
+        setTarefas([]);
+        localStorage.removeItem('tarefas');
+    }
+    
+}
+
     return(
         <div className="divPrincipal">
             
             <div className= "divConteudo">
                 <Titulo>Gerenciador de Tarefas</Titulo>
-                <AdicionarTarefas emClickAdicionar ={emClickAdicionar}/>
+                <AdicionarTarefas emClickAdicionar ={emClickAdicionar} excluirTodas={excluirTodas}/>
                 <Tarefas tarefas ={tarefas} emClick={emClick} emClickExluir={emClickExluir}/>
             </div>
         </div>
@@ -148,3 +140,25 @@ function emClickAdicionar(titulo,descricao){
 
 export default Dados;
 
+ //[
+//         {
+//         id:1,
+//         titulo: "Comprar pão",
+//         descricao: "Ir ao mercado comprar pão.",
+//         isCompleted: false,
+//     },{
+//         id:2,
+//         titulo: "Regar as plantas",
+//         descricao: "Regar as plantas",
+//         isCompleted:false,
+//     },{
+//         id:3,
+//         titulo: "Tomar banho",
+//         descricao:"Tomar banho",
+//         isCompleted: false,
+//     },
+//     // {id:4,
+//     // titulo:"Ir à academia",
+//     // descrição: "Ir faxer exercicio",
+//     // isCompleted:false},
+// ]

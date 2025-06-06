@@ -1,8 +1,9 @@
 import React, {useState} from "react";
 import Input from "./input";
+import Tarefas from "./Tarefas";
 
 
-function AdicionarTarefas({emClickAdicionar}){
+function AdicionarTarefas({emClickAdicionar,excluirTodas}){
 
    const [titulo, setTitulo] = useState("");
    const [descricao, setDescricao] = useState("");
@@ -28,8 +29,12 @@ function AdicionarTarefas({emClickAdicionar}){
             return alert("Preencha o título e a descrição da tarefa.");
          }
          emClickAdicionar(titulo,descricao);
+         setTitulo("");
+         setDescricao("");
          
         }} className="butAd">Adicionar</button>
+        <button onClick={excluirTodas}
+        className="butEx">Excluir Tarefas</button>
     </div>
    )
 }

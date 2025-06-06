@@ -21,3 +21,7 @@ createRoot(document.getElementById('root')).render(
     <RouterProvider router={router} />
   </StrictMode>,
 )
+
+
+
+// https://curso-react-fr-y6hn.vercel.app/
