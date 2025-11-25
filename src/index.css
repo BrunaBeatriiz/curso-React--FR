@@ -35,7 +35,7 @@ body .divPrincipal{
   padding: 10px;
   padding-bottom: 50px;
   width: 90%;
-  height: 100%;
+  min-height: 70%;
   background:#c4c4ff;
   display: flex;
   flex-flow: column nowrap;
