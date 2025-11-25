@@ -12,7 +12,7 @@
 body .divPrincipal{
   width: 100;
   min-height: 100vh;
-  background-color: #15156d;
+  background-color: #082a88e0;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -47,7 +47,7 @@ body .divPrincipal{
 
 
 .lista{
-  background-color: #0000ff50;
+  background-color: #1c1cf550;
   width: 75%;
   padding:10px;
   display: flex;
@@ -101,14 +101,16 @@ body .divPrincipal{
   background-color: #B4B4FF;
   border: 1px solid #dfdffc;
   border-radius: 5px;
-  padding: 4px;
-  margin: 2px 3px;
+  padding: 5px;
+  margin: 6px 3px;
   font-weight: 600;
   font-size: 0.7em;
   box-shadow: 1px 2px 2px #c9c9ff;
-  outline: solid #0E0E46;
-  margin-bottom: 5px;
 }
+
+  #iddesc{
+    margin-bottom: 12px;
+  }
 
 
 .butAd{

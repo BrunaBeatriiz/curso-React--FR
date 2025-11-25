@@ -17,7 +17,7 @@ function AdicionarTarefas({emClickAdicionar,excluirTodas}){
       onChange={(event)=> setTitulo(event.target.value)}
       />
 
-      <Input
+      <Input 
       type="text" name="desc" id="iddesc" placeholder="DIgite a descrição da tarefa:" 
       value={descricao}
       onChange={(event)=> setDescricao(event.target.value)}
