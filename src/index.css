@@ -164,7 +164,7 @@ body .divPrincipal{
   padding-bottom: 50px;
   width: 90%;
   height: 82%;
-  background:#9696ff;
+  background:#c4c4ff;
   display: flex;
   flex-flow: column wrap;
   justify-content: flex-start;
@@ -179,7 +179,7 @@ h1{
 }
 
 .divCont{
-  background-color: #c9c9ff;
+  background-color: #e0e0ff98;
   padding: 20px;
   width: 65%;
   height: 30%;
