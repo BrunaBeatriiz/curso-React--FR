@@ -122,6 +122,7 @@ body .divPrincipal{
   font-size: 0.8em;
   color: #f0f0f0;
   margin-bottom: 5px;
+  transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
 }
 .butEx{
   background-color: #800020;
@@ -133,6 +134,7 @@ body .divPrincipal{
   font-weight: 600;
   font-size: 0.8em;
   color: #fcc4c4;
+  transition: background-color 0.5s, color 0.5s, box-shadow 0.5s;
 }
 
 .butAd:hover{
@@ -143,7 +145,7 @@ body .divPrincipal{
   cursor: pointer;
 }
 .butEx:hover{
-  background-color:  #dd1627c2 ;
+  background-color:  #ff0015c2 ;
   color: whitesmoke;
   font-weight: normal;
   box-shadow: 1px 2px 2px #dfdffcdc;
@@ -227,11 +229,13 @@ h1{
   background-color: #0E0E46;
   margin-left: 2px;
   margin-right: 10px;
+  box-shadow: 1px 1px 2px #0e0e4644;
+  transition: background-color 0.5s, color 0.5s, border 0.5s, box-shadow 0.5s;
 }
 
 .butTarefa:hover{
-  background: #e4e4ff;
+  background-color: #e4e4ff;
   color: #0E0E46;
-  border: 1px solid #0E0E46;
+  box-shadow: 1px 1px 2px #0e0e4656;
 }
 
