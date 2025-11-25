@@ -1,7 +1,7 @@
 @media screen and (min-width: 768px) and (max-width: 992px){
    .divPrincipal{
         width: 94%;
-        background-color: #0E0E46;
+        /* background-color: #0E0E46; */
         padding: 24px;
         padding-top: 30px;
     }
@@ -16,7 +16,7 @@
         padding: 20px;
         width: 90%;
         height: 100%;
-        background:#9696ff;
+        /* background:#9696ff; */
         border-radius: 6px;
         padding-bottom: 50px;
     }
@@ -30,7 +30,7 @@
     }
     
     .lista{
-        background-color: #0E0E46;
+        /* background-color: #0E0E46; */
         width: 50%;
         padding:15px;
         display: flex;
@@ -44,7 +44,7 @@
     
     .itemlista{
         font-family: 'Times New Roman', Times, serif;
-        background-color: #B4B4FF;
+        /* background-color: #B4B4FF; */
         color: rgb(0, 0, 48);
         padding: 5px;
         width: 70%;
@@ -57,7 +57,7 @@
     
     .button{
         border: 1px solid #0E0E46;
-        background-color:#B4B4FF;
+        /* background-color:#B4B4FF; */
         color: #0E0E46;
         border-radius: 5px;
         width: 15%;
@@ -66,7 +66,7 @@
     }
     .button1{
         border: 1px solid #0E0E46;
-        background-color:#B4B4FF;
+        /* background-color:#B4B4FF; */
         color: #0E0E46;
         border-radius: 5px;
         width: 15%;
@@ -85,7 +85,7 @@
         height: 25px;
         border: 1px;
         color: white;
-        background-color: #0E0E46;
+        /* background-color: #0E0E46; */
         margin-left: 2px;
         margin-right: 30px;
       }
@@ -94,7 +94,7 @@
 @media screen and (min-width: 992px) {
     .divPrincipal{
         width: 96%;
-        background-color: #0E0E46;
+        /* background-color: #0E0E46; */
        
     }
     
@@ -108,7 +108,7 @@
         padding: 20px;
         width: 90%;
         height: 100%;
-        background:#9696ff;
+        /* background:#9696ff; */
         border-radius: 6px;
     }
     
@@ -121,7 +121,7 @@
     }
     
     .lista{
-        background-color: #0E0E46;
+        /* background-color: #0E0E46; */
         width: 50%;
         padding:15px;
         display: flex;
@@ -135,7 +135,7 @@
     
     .itemlista{
         font-family: 'Times New Roman', Times, serif;
-        background-color: #B4B4FF;
+        /* background-color: #B4B4FF; */
         color: rgb(0, 0, 48);
         padding: 5px;
         width: 70%;
@@ -149,7 +149,7 @@
     
     .button{
         border: 1px solid #0E0E46;
-        background-color:#B4B4FF;
+        /* background-color:#B4B4FF; */
         color: #0E0E46;
         border-radius: 5px;
         width: 15%;
@@ -158,7 +158,7 @@
     }
     .button1{
         border: 1px solid #0E0E46;
-        background-color:#B4B4FF;
+        /* background-color:#B4B4FF; */
         color: #0E0E46;
         border-radius: 5px;
         width: 15%;
@@ -176,7 +176,7 @@
         height: 25px;
         border: 1px;
         color: white;
-        background-color: #0E0E46;
+        /* background-color: #0E0E46; */
         margin-left: 2px;
         margin-right: 30px;
       }
