@@ -1,49 +1,72 @@
 import { useNavigate } from "react-router-dom";
 import Button from "./buttonTarefas";
 
-function Tarefas({tarefas,emClick,emClickExluir}){
-    const navigate = useNavigate();
+function Tarefas({ tarefas, emClick, emClickExluir }) {
+  const navigate = useNavigate();
 
-    function verDetalhes (tarefa){
-        navigate(`/tarefas?titulo=${tarefa.titulo}&descricao=${tarefa.descricao}`);
-    }
+  function verDetalhes(tarefa) {
+    navigate(`/tarefas?titulo=${tarefa.titulo}&descricao=${tarefa.descricao}`);
+  }
 
-    // function verDetalhes (tarefa){
-    //     const query = new URLSearchParams();
-    //     query.set("titulo", tarefa.titulo)
-    //     query.set("descricao", tarefa.descricao)
-    //     navigate(`/tarefas?${query.toString()}`);
-    // }
-    
-    
-    return(
-        <ul className="lista">
-            {tarefas.map((tarefa)=> (
-            <li key={tarefa.id}>
-                <
-                    button onClick={()=> emClick(tarefa.id)} 
-                    className="itemlista"
-                    style= {{textDecoration: tarefa.isCompleted? 'line-through':'none'}}
-                >
-                    {/* {tarefa.isCompleted &&<svg xmlns="http://www.w3.org/2000/svg" height="11px" viewBox="0 -960 960 960" width="13px" fill="#5f6368" ><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>} */}
-                    {tarefa.titulo}
-                    
-                </button>
-                <Button
-                 onClick={()=> verDetalhes(tarefa)}
-                >
-                    &#62;
-                </Button>
-                <Button  onClick={() =>emClickExluir(tarefa.id)}
-                > 
-                 <svg xmlns="http://www.w3.org/2000/svg" height="11px" viewBox="0 -960 960 960" width="13px" fill="#5f6368"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z"/></svg>
+  // function verDetalhes (tarefa){
+  //     const query = new URLSearchParams();
+  //     query.set("titulo", tarefa.titulo)
+  //     query.set("descricao", tarefa.descricao)
+  //     navigate(`/tarefas?${query.toString()}`);
+  // }
 
-                </Button>
-            </li>
-        ))}
-        </ul>
-    )
-    
+
+  return (
+    <ul className="flex flex-col gap-3 mt-4">
+      {tarefas.map((tarefa, index) => (
+        <li key={tarefa.id}
+          style={{ animationDelay: `${index * 0.05}s` }}
+          className=" flex justify-between items-center
+            bg-white
+            border border-slate-200
+            rounded-xl 
+            p-2
+
+
+            hover:border-[#60A5FA]
+            hover:-translate-y-1
+            hover:shadow-md
+
+            active:scale-[0.98]
+
+            transition duration-200
+            animate-[fadeInUp_0.3s_ease]">
+          <button onClick={() => emClick(tarefa.id)}
+            className="flex-1 text-left
+                    text-slate-700
+                    font-medium hover:text-[#60A5FA]
+                    transition"
+            style={{ textDecoration: tarefa.isCompleted ? 'line-through' : 'none' }}
+          >
+            {/* {tarefa.isCompleted &&<svg xmlns="http://www.w3.org/2000/svg" height="11px" viewBox="0 -960 960 960" width="13px" fill="#5f6368" ><path d="M382-240 154-468l57-57 171 171 367-367 57 57-424 424Z"/></svg>} */}
+            {tarefa.titulo}
+
+          </button>
+
+          <div className="flex gap-1 ml-3 ">
+            <Button
+
+              onClick={() => verDetalhes(tarefa)}
+            >
+              &#62;
+            </Button>
+            <Button
+              variant="danger"
+              onClick={() => emClickExluir(tarefa.id)}
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" height="11px" viewBox="0 -960 960 960" width="13px" fill="white"><path d="M280-120q-33 0-56.5-23.5T200-200v-520h-40v-80h200v-40h240v40h200v80h-40v520q0 33-23.5 56.5T680-120H280Zm400-600H280v520h400v-520ZM360-280h80v-360h-80v360Zm160 0h80v-360h-80v360ZM280-720v520-520Z" /></svg>
+            </Button>
+          </div>
+        </li>
+      ))}
+    </ul>
+  )
+
 }
 
 export default Tarefas;

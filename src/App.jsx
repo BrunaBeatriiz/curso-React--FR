@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import AdicionarTarefas from "./componetes/AdicionarTarefas";
 import Tarefas from "./componetes/Tarefas";
 import "./index.css";
@@ -9,41 +9,134 @@ import Teste from "./componetes/testeClasse";
 
 
 
-function Dados(){
+function Dados() {
     const [tarefas, setTarefas] = useState(() => {
-        try{
+        try {
             return JSON.parse(localStorage.getItem("tarefas")) || [];
-        }catch(erro){
+        } catch (erro) {
             console.error("Erro ao buscar tarefas no localStorage", erro)
             return [];
         }
     }
-   
-    
 
-);
 
-useEffect(() => {
-    localStorage.setItem("tarefas", JSON.stringify(tarefas))
-}, [tarefas]);
 
-useEffect(()=>{
-   async function buscaApi (){
-     //chamar api
-     const dadosAPI = await fetch ('https://jsonplaceholder.typicode.com/todos?_limit=10',{
-        method:"GET",
-     });
-     //pegar os dados que ela retorna.
-     const dados  = await dadosAPI.json();
-     console.log(dados);
-     //pegando a resposta da api e trasnformado-a em um json
-     //armazenar esses dados no State:
-     setTarefas(dados);
-   };
+    );
 
-//    buscaApi();
-   
-},[]);
+    useEffect(() => {
+        localStorage.setItem("tarefas", JSON.stringify(tarefas))
+    }, [tarefas]);
+
+    useEffect(() => {
+        async function buscaApi() {
+            //chamar api
+            const dadosAPI = await fetch('https://jsonplaceholder.typicode.com/todos?_limit=10', {
+                method: "GET",
+            });
+            //pegar os dados que ela retorna.
+            const dados = await dadosAPI.json();
+            console.log(dados);
+            //pegando a resposta da api e trasnformado-a em um json
+            //armazenar esses dados no State:
+            setTarefas(dados);
+        };
+
+        //    buscaApi();
+
+    }, []);
+
+
+
+    function emClick(tarefaId) {
+        const newTarefa = tarefas.map(tarefa => {
+            if (tarefa.id === tarefaId) {
+                return { ...tarefa, isCompleted: !tarefa.isCompleted }
+            }
+            return tarefa;
+        });
+
+        setTarefas(newTarefa);
+
+    }
+
+    function emClickExluir(tarefaId) {
+        // const excluiTarefa = [...tarefas];
+        // const index = excluiTarefa.findIndex(tarefa => tarefa.id === tarefaId);
+        //  if(index > -1){
+        //     excluiTarefa.splice(index, 1);
+        //         }
+
+        // const exclui = [...tarefas];
+        // const excluiTarefa = exclui.filter((tarefa) =>  tarefaId !== tarefa.id
+        // );
+
+
+        const excluiTarefa = tarefas.filter((tarefa) => tarefaId !== tarefa.id
+        );
+
+        setTarefas(excluiTarefa);
+    }
+
+    function emClickAdicionar(titulo, descricao) {
+        const novaTarefa = {
+            id: Date.now(),
+            titulo: titulo,
+            descricao: descricao,
+            isCompleted: false,
+        }
+
+        setTarefas([...tarefas, novaTarefa]);
+    }
+
+    function excluirTodas() {
+        if (!tarefas.length) {
+            return alert("Não há tarefas para excluir.");
+        }
+        const confirmar = window.confirm("Você deseja excluir todas as tarefas?");
+        if (confirmar) {
+            setTarefas([]);
+            localStorage.removeItem('tarefas');
+        }
+
+    }
+
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-slate-100 to-indigo-100 flex justify-center p-10">
+
+            <div className="w-full max-w-xl bg-gray-50 p-10 rounded-2xl shadow-md flex flex-col gap-4 border border-blue-100">
+                <Titulo>Gerenciador de Tarefas</Titulo>
+                <AdicionarTarefas emClickAdicionar={emClickAdicionar} excluirTodas={excluirTodas} />
+                <Tarefas tarefas={tarefas} emClick={emClick} emClickExluir={emClickExluir} />
+            </div>
+        </div>
+    );
+}
+
+export default Dados;
+
+//[
+//         {
+//         id:1,
+//         titulo: "Comprar pão",
+//         descricao: "Ir ao mercado comprar pão.",
+//         isCompleted: false,
+//     },{
+//         id:2,
+//         titulo: "Regar as plantas",
+//         descricao: "Regar as plantas",
+//         isCompleted:false,
+//     },{
+//         id:3,
+//         titulo: "Tomar banho",
+//         descricao:"Tomar banho",
+//         isCompleted: false,
+//     },
+//     // {id:4,
+//     // titulo:"Ir à academia",
+//     // descrição: "Ir faxer exercicio",
+//     // isCompleted:false},
+// ]
+
 
 // useEffect:
 
@@ -74,91 +167,3 @@ useEffect(()=>{
 // Então tarefaId é apenas o nome da variável que contem o tarefa.id, que está sendo passado como argumento no componente filho?
 
 // Exatamente! tarefaId é apenas o nome da variável que recebe o valor de tarefa.id, que é passado como argumento no componente filho.
-
-  
-function emClick(tarefaId){  
-   const newTarefa = tarefas.map(tarefa =>{
-    if(tarefa.id === tarefaId){
-        return {...tarefa, isCompleted: !tarefa.isCompleted}
-    }
-    return tarefa;
-   });
-
-   setTarefas (newTarefa);
-  
-}
-
-function emClickExluir(tarefaId){
-    // const excluiTarefa = [...tarefas];
-    // const index = excluiTarefa.findIndex(tarefa => tarefa.id === tarefaId);
-    //  if(index > -1){
-    //     excluiTarefa.splice(index, 1);
-    //         }
-
-    // const exclui = [...tarefas];
-    // const excluiTarefa = exclui.filter((tarefa) =>  tarefaId !== tarefa.id
-    // );
-   
-
-    const excluiTarefa = tarefas.filter((tarefa) =>  tarefaId !== tarefa.id
-    );
-   
-    setTarefas (excluiTarefa);
-}
-
-function emClickAdicionar(titulo,descricao){
-    const novaTarefa ={
-        id : tarefas.length +1,
-        titulo:titulo,
-        descricao:descricao,
-        isCompleted:false,
-    }
-
-    setTarefas([...tarefas, novaTarefa]);
-}
-
-function excluirTodas () {
-    const confirmar = window.confirm("Você deseja excluir todas as tarefas?");
-    if(confirmar){
-        setTarefas([]);
-        localStorage.removeItem('tarefas');
-    }
-    
-}
-
-    return(
-        <div className="divPrincipal">
-            
-            <div className= "divConteudo">
-                <Titulo>Gerenciador de Tarefas</Titulo>
-                <AdicionarTarefas emClickAdicionar ={emClickAdicionar} excluirTodas={excluirTodas}/>
-                <Tarefas tarefas ={tarefas} emClick={emClick} emClickExluir={emClickExluir}/>
-            </div>
-        </div>
-    );
-}
-
-export default Dados;
-
- //[
-//         {
-//         id:1,
-//         titulo: "Comprar pão",
-//         descricao: "Ir ao mercado comprar pão.",
-//         isCompleted: false,
-//     },{
-//         id:2,
-//         titulo: "Regar as plantas",
-//         descricao: "Regar as plantas",
-//         isCompleted:false,
-//     },{
-//         id:3,
-//         titulo: "Tomar banho",
-//         descricao:"Tomar banho",
-//         isCompleted: false,
-//     },
-//     // {id:4,
-//     // titulo:"Ir à academia",
-//     // descrição: "Ir faxer exercicio",
-//     // isCompleted:false},
-// ]

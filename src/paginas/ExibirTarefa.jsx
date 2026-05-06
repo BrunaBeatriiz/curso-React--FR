@@ -1,24 +1,46 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import Titulo from "../componetes/titulo";
 
-function ExibirTarefa(){
+function ExibirTarefa() {
     const navigate = useNavigate();
     const [searchParams] = useSearchParams();
     const titulo = searchParams.get("titulo");
     const descricao = searchParams.get("descricao");
-    return(
-        <div className="divPrincipal">
-            <div className="divConteudoTarefa">
-                <div className="display">
-                    <button onClick={() => navigate(-1)} className="butTarefa">
-                    &#8249;
+
+    return (
+        <div className="min-h-screen bg-gradient-to-br from-slate-100 to-indigo-100
+        flex justify-center items-center p-20">
+
+            <div className="w-full max-w-md bg-white p-6 border border-[#60A5FA] rounded-2xl shadow-md
+            animate-[fadeIn_0.4s_ease]">
+
+
+                {/* HEADER */}
+                <div className="flex items-center gap-20 mb-6">
+                    <button onClick={() => navigate(-1)} className="w-8 h-8
+                    border border-slate-700
+                    rounded-full
+                    flex items-center justify-center
+                    hover:border-[#60A5FA]
+                    hover:text-[#60A5FA]
+                    hover:scale-110
+
+                    active:scale-95
+
+                    transition duration-200">
+                        &#8249;
                     </button>
+
                     <Titulo>Detalhes da Tarefa</Titulo>
                 </div>
-            <div className="divCont">
-                <h2>{titulo}</h2>
-                <p>{descricao}</p>
-            </div>
+
+                <div className="h-0.5 w-full bg-[#60A5FA] rounded-t-xl mb-8"></div>
+
+
+                <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 flex flex-col items-center">
+                    <h2 className="text-lg font-semibold text-slate-800 mb-2">{titulo}</h2>
+                    <p className="text-slate-600 text-sm leading-relaxed">{descricao}</p>
+                </div>
             </div>
         </div>
     );

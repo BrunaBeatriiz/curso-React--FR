@@ -1,41 +1,53 @@
-import React, {useState} from "react";
+
+import Button from "./buttonTarefas";
 import Input from "./input";
-import Tarefas from "./Tarefas";
+import { useState } from "react";
 
 
-function AdicionarTarefas({emClickAdicionar,excluirTodas}){
+
+function AdicionarTarefas({ emClickAdicionar, excluirTodas }) {
 
    const [titulo, setTitulo] = useState("");
    const [descricao, setDescricao] = useState("");
    // console.log({titulo,descricao});
 
    return (
-    <div className="lista">
-      <Input
-      type="text" name="titulo" id="idtitulo" placeholder="DIgite o titúlo da tarefa:" 
-      value={titulo}
-      onChange={(event)=> setTitulo(event.target.value)}
-      />
+      <div className="flex flex-col  gap-4">
+         <Input
+            type="text"
+            placeholder="DIgite o titúlo da tarefa:"
+            value={titulo}
+            onChange={(event) => setTitulo(event.target.value)}
+         />
 
-      <Input 
-      type="text" name="desc" id="iddesc" placeholder="DIgite a descrição da tarefa:" 
-      value={descricao}
-      onChange={(event)=> setDescricao(event.target.value)}
-      />
-      <button
-        onClick={()=>{
+         <textarea
+            className="w-full px-3 py-2 rounded-lg border border-blue-200 focus:outline-none focus:ring-2 focus:ring-[#60A5FA]"
+            placeholder="Digite a descrição da tarefa"
+            value={descricao}
+            onChange={(e) => setDescricao(e.target.value)}
+         />
+         <div className="flex flex-col gap-2 mt-2">
+            <Button
+               onClick={() => {
 
-         if(!titulo.trim() || !descricao.trim()){
-            return alert("Preencha o título e a descrição da tarefa.");
-         }
-         emClickAdicionar(titulo,descricao);
-         setTitulo("");
-         setDescricao("");
-         
-        }} className="butAd">Adicionar</button>
-        <button onClick={excluirTodas}
-        className="butEx">Excluir Tarefas</button>
-    </div>
+                  if (!titulo.trim() || !descricao.trim()) {
+                     return alert("Preencha o título e a descrição da tarefa.");
+                  }
+                  emClickAdicionar(titulo, descricao);
+                  setTitulo("");
+                  setDescricao("");
+
+               }} >
+               Adicionar
+            </Button>
+            <Button
+               variant="danger"
+               onClick={excluirTodas}
+            >
+               Excluir Tarefas
+            </Button>
+         </div>
+      </div>
    )
 }
 
@@ -93,8 +105,8 @@ export default AdicionarTarefas;
 // O valor do input é controlado pelo estado titulo. Quando o estado muda, o valor no campo de input também muda.
 // value é para exibição, e o onChange permite atualizar esse valor conforme o usuário digita.
 
-// O setTitulo altera o estado cada vez que onChange é disparado (toda vez que uma nova letra é adicionada/digitada), o value={titulo} é usado para atualizar o valor do estado na exibição, então o valor daquela caixa será o valor do estado, que é atualizado a cada nova letra. 
-// o onchange é adicionado e cada nova palavra digitada ele dispara automaticamente, o event é necessario ser passado como parametro para que a função possa acessar os valores contidos nele, o target é usado para que o valor pego seja daquele input em especifico (com dois campos de input e sem o target o js não saberia de onde pegar os valores), e o value signifaca acessar os valores daquele input. 
+// O setTitulo altera o estado cada vez que onChange é disparado (toda vez que uma nova letra é adicionada/digitada), o value={titulo} é usado para atualizar o valor do estado na exibição, então o valor daquela caixa será o valor do estado, que é atualizado a cada nova letra.
+// o onchange é adicionado e cada nova palavra digitada ele dispara automaticamente, o event é necessario ser passado como parametro para que a função possa acessar os valores contidos nele, o target é usado para que o valor pego seja daquele input em especifico (com dois campos de input e sem o target o js não saberia de onde pegar os valores), e o value signifaca acessar os valores daquele input.
 // Sim, o onChange é disparado automaticamente sempre que o valor do input muda (quando o usuário digita algo).
 
 // Quando o botão "Adicionar" é clicado, o valor atual de titulo e descricao é passado para o pai através da função emClickAdicionar para adicionar uma nova tarefa.
